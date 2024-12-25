@@ -8,12 +8,21 @@ use App\Models\Category;
 class DashboardController extends Controller
 {
     public function index()
-    {
-        $totalStock = Product::sum('stock');
-        $totalProduct = Product::count();
-        $totalCategory = Category::count();
-        return view('dashboard', compact('totalStock','totalProduct', 'totalCategory'));
-    }
+{
+    \Log::info('Entering DashboardController@index');
+
+    $totalStock = Product::sum('stock');
+    \Log::info('Total Stock: ' . $totalStock);
+
+    $totalProduct = Product::count();
+    \Log::info('Total Product: ' . $totalProduct);
+
+    $totalCategory = Category::count();
+    \Log::info('Total Category: ' . $totalCategory);
+
+    return view('dashboard', compact('totalStock','totalProduct', 'totalCategory'));
+}
+
     public function api()
     {
         $newestProducts = Product::orderBy('created_at', 'desc')->take(5)->get();

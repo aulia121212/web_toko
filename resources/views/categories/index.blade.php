@@ -25,18 +25,19 @@
     <table class="table table-hover">
         <thead class="table-success">
             <tr>
-                <th>#</th>
+                <th>No</th>
                 <th>Nama</th>
                 <th>Deskripsi</th>
                 <th>Aksi</th>
             </tr>
         </thead>
-        <tbody>+
+        <tbody>
             @if($categories->count() > 0)
                 @foreach($categories as $category)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
                         <td class="align-middle">{{ $category->name }}</td>
+
                         <td class="align-middle truncate-text-700px">{{ $category->description }}</td>  
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic example">

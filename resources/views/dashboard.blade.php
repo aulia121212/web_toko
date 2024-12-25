@@ -1,6 +1,6 @@
 @extends('layouts.app')
   
-@section('title', 'Dashboard - Toko Lancar')
+@section('title', 'Dashboard - UMKM XPLORE')
   
 <?php
 $items = [

@@ -51,6 +51,17 @@
                 @enderror
             </div>
         </div>
+
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label" for="image">Gambar</label>
+                <input type="file" name="image" class="form-control" placeholder="Gambar">
+                @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
  
         <div class="row">
             <div class="d-grid">

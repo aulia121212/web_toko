@@ -25,8 +25,10 @@
     <table class="table table-hover">
         <thead class="table-success">
             <tr>
-                <th>#</th>
+                <th>No</th>
                 <th>Nama</th>
+                <th>Image</th>
+    
                 <th>Harga</th>
                 <th>Stok</th>
                 <th>Kategori</th>
@@ -39,6 +41,10 @@
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
                         <td class="align-middle">{{ $product->name }}</td>
+                        <td class="align-middle">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="100">
+                        </td>
+                        
                         <td class="align-middle">{{ $product->price }}</td>
                         <td class="align-middle">{{ $product->stock }}</td>
                         <td class="align-middle">{{ $product->category->name }}</td>  

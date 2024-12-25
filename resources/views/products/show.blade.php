@@ -1,37 +1,48 @@
 @extends('layouts.app')
-  
+
 @section('title', 'Produk Detail')
-  
+
 @section('contents')
     <hr />
-    <div class="row">
-        <div class="col mb-3">
-            <label class="form-label">Nama</label>
-            <input type="text" name="name" class="form-control" placeholder="Nama" value="{{ $product->name }}" readonly>
-        </div>
-        <div class="col mb-3">
-            <label class="form-label">Harga</label>
-            <input type="text" name="price" class="form-control" placeholder="Harga" value="{{ $product->price }}" readonly>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col mb-3">
-            <label class="form-label">Kategori</label>
-            <input type="text" name="category_id" class="form-control" placeholder="Kategori" value="{{ $category->name }}" readonly>
-        </div>
-        <div class="col mb-3">
-            <label class="form-label">Deskripsi</label>
-            <textarea class="form-control" name="description" placeholder="Deskripsi" readonly>{{ $product->description }}</textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col mb-3">
-            <label class="form-label">Created At</label>
-            <input type="text" name="created_at" class="form-control" value="{{ $product->created_at }}" readonly>
-        </div>
-        <div class="col mb-3">
-            <label class="form-label">Updated At</label>
-            <input type="text" name="updated_at" class="form-control" value="{{ $product->updated_at }}" readonly>
-        </div>
+    <div class="container">
+        <h2>Detail Produk</h2>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Nama</th>
+                    <td>{{ $product->name }}</td>
+                </tr>
+                <tr>
+                    <th>Harga</th>
+                    <td>{{ number_format($product->price, 3, '.', '.') }}</td>
+                </tr>
+                <tr>
+                    <th>Kategori</th>
+                    <td>{{ $category->name }}</td>
+                </tr>
+                <tr>
+                    <th>Deskripsi</th>
+                    <td>{{ $product->description }}</td>
+                </tr>
+                <tr>
+                    <th>Gambar</th>
+                    <td>
+                        @if($product->image)
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="max-width: 200px;">
+                        @else
+                            <p>Tidak ada gambar tersedia</p>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <th>Created At</th>
+                    <td>{{ $product->created_at->format('d-m-Y H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Updated At</th>
+                    <td>{{ $product->updated_at->format('d-m-Y H:i:s') }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 @endsection

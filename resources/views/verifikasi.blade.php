@@ -1,6 +1,6 @@
 @extends('layouts.app')
   
-@section('title', 'Profil Akun')
+@section('title', 'verifikasi')
   
 @section('contents')
     <hr />
